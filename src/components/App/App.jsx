@@ -1,11 +1,23 @@
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Header from "../Header/Header";
+import Main from "../Main/Main";
+import About from "../About/About";
+import SavedNews from "../SavedNews/SavedNews";
 
 function App() {
   return (
     <>
       <Header />
-      <p>This is your first Vite project</p>
+
+      <main>
+        <Routes>
+          <Route path="/" element={<Main />}></Route>
+          <Route path="/saved-news" element={<SavedNews />}></Route>
+          <Route path="/about" element={<About />}></Route>
+        </Routes>
+      </main>
     </>
   );
 }
