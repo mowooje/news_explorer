@@ -8,17 +8,18 @@ import SavedNews from "../SavedNews/SavedNews";
 
 function App() {
   return (
-    <>
-      <Header />
-
-      <main>
-        <Routes>
-          <Route path="/" element={<Main />}></Route>
-          <Route path="/saved-news" element={<SavedNews />}></Route>
-          <Route path="/about" element={<About />}></Route>
-        </Routes>
-      </main>
-    </>
+    <div className="page">
+      <div className="page__content">
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<Main />}></Route>
+            <Route path="/saved-news" element={<SavedNews />}></Route>
+            <Route path="/about" element={<About />}></Route>
+          </Routes>
+        </main>
+      </div>
+    </div>
   );
 }
 
