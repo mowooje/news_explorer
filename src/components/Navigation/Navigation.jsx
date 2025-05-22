@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./Navigation.css";
 import logo from "../../assets/NewsExplorer.svg";
 
-const Navigation = () => {
+function Navigation({ handleSignInClick }) {
   return (
     <nav className="navigation">
       <div className="navigation__content">
@@ -16,11 +16,16 @@ const Navigation = () => {
           <Link to="/" className="navigation__home-link">
             Home
           </Link>
-          <button className="navigation__sign-in-btn">Sign in</button>
+          <button
+            className="navigation__sign-in-btn"
+            onClick={handleSignInClick}
+          >
+            Sign in
+          </button>
         </div>
       </div>
     </nav>
   );
-};
+}
 
 export default Navigation;
