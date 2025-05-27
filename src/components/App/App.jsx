@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import Header from "../Header/Header";
 import Main from "../Main/Main";
 import LoginModal from "../LoginModal/LoginModal";
+import Header from "../Header/Header";
 import SavedNews from "../SavedNews/SavedNews";
+import Footer from "../Footer/Footer";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -46,6 +47,7 @@ function App() {
           <Route path="/" element={<Main />}></Route>
           <Route path="/saved-news" element={<SavedNews />}></Route>
         </Routes>
+        <Footer />
       </div>
       <LoginModal
         isOpen={activeModal === "login"}
