@@ -95,7 +95,7 @@ function RegisterModal({
 
       <div className="modal__button-container">
         <button type="submit" className="modal__submit">
-          Sign in
+          Sign up
         </button>
         <div className="modal__signup-container">
           <p className="modal__or-text">or</p>
