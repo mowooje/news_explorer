@@ -5,6 +5,7 @@ import Main from "../Main/Main";
 import LoginModal from "../LoginModal/LoginModal";
 import Header from "../Header/Header";
 import SavedNews from "../SavedNews/SavedNews";
+import RegisterModal from "../RegisterModal/RegisterModal";
 import Footer from "../Footer/Footer";
 
 function App() {
@@ -22,6 +23,23 @@ function App() {
   };
 
   // ✅ Handle registration and login
+  const handleRegister = (values) => {
+    setIsLoading(true);
+    registerUser(values)
+      .then(() => loginUser({ email: values.email, password: values.password }))
+      .then((res) => {
+        localStorage.setItem("jwt", res.token);
+        return fetchUserData(res.token);
+      })
+      .then((userData) => {
+        setCurrentUser(userData);
+        setIsLoggedIn(true);
+        closeActiveModal(); // ✅ Close modal after login
+      })
+      .catch((error) => console.error("Registration or login failed:", error))
+      .finally(() => setIsLoading(false));
+  };
+
   const handleLogin = (values) => {
     setIsLoading(true);
     loginUser(values)
@@ -53,6 +71,13 @@ function App() {
         isOpen={activeModal === "login"}
         onClose={closeActiveModal}
         handleLogin={handleLogin}
+        setActiveModal={setActiveModal}
+      />
+      <RegisterModal
+        isOpen={activeModal === "register"}
+        onClose={closeActiveModal}
+        handleRegistration={handleRegister}
+        setActiveModal={setActiveModal}
       />
     </div>
   );
