@@ -104,7 +104,7 @@ function RegisterModal({
             className="modal__to-register"
             onClick={() => setActiveModal("register")}
           >
-            Sign up
+            Sign in
           </button>
         </div>
       </div>
