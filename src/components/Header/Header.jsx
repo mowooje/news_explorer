@@ -2,7 +2,7 @@ import "./Header.css";
 import Navigation from "../Navigation/Navigation";
 import SearchForm from "../SearchForm/SearchForm";
 
-function Header({ handleSignInClick }) {
+function Header({ handleSignInClick, onSearch }) {
   return (
     <header className="header">
       <Navigation handleSignInClick={handleSignInClick} />
@@ -13,7 +13,7 @@ function Header({ handleSignInClick }) {
           account.
         </h2>
       </section>
-      <SearchForm />
+      <SearchForm onSearch={onSearch} />
     </header>
   );
 }

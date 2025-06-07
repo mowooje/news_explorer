@@ -7,12 +7,17 @@ import Header from "../Header/Header";
 import SavedNews from "../SavedNews/SavedNews";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import Footer from "../Footer/Footer";
+import { getNewsArticles } from "../../utils/NewsApi";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
+  const [searchResults, setSearchResults] = useState([]);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [visibleCount, setVisibleCount] = useState(3);
+  const [hasSearched, setHasSearched] = useState(false);
 
   const handleSignInClick = () => {
     setActiveModal("login");
@@ -56,13 +61,57 @@ function App() {
       .finally(() => setIsLoading(false));
   };
 
+  // ✅ NewsAPi
+  const handleSearchSubmit = (keyword) => {
+    setSearchResults([]);
+    setErrorMessage("");
+    setVisibleCount(3);
+    setIsLoading(true);
+    setHasSearched(true);
+
+    getNewsArticles(keyword)
+      .then((res) => {
+        if (res.articles.length === 0) {
+          setErrorMessage("Nothing Found");
+        } else {
+          setSearchResults(res.articles);
+        }
+      })
+      .catch(() => {
+        setErrorMessage(
+          "Sorry, something went wrong during the request. Please try again later."
+        );
+      })
+      .finally(() => setIsLoading(false));
+  };
+
+  const handleShowMore = () => {
+    setVisibleCount((prev) => prev + 3);
+  };
+
   return (
     <div className="page">
       <div className="page__content">
-        <Header handleSignInClick={handleSignInClick} />
+        <Header
+          handleSignInClick={handleSignInClick}
+          onSearch={handleSearchSubmit}
+        />
 
         <Routes>
-          <Route path="/" element={<Main />}></Route>
+          <Route
+            path="/"
+            element={
+              <Main
+                onSearch={handleSearchSubmit}
+                searchResults={searchResults}
+                isLoading={isLoading}
+                errorMessage={errorMessage}
+                visibleCount={visibleCount}
+                onShowMore={handleShowMore}
+                hasSearched={hasSearched}
+              />
+            }
+          ></Route>
           <Route path="/saved-news" element={<SavedNews />}></Route>
         </Routes>
         <Footer />
