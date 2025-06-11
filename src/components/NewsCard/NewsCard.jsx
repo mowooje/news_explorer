@@ -11,7 +11,7 @@ function NewsCard({ articles, errorMessage, visibleCount, onShowMore }) {
   }
 
   return (
-    <section className="newscard-section">
+    <section className="newscard__section">
       <h2 className="newscard-section__title">Search Results</h2>
       <div className="newscard-section__cards">
         {articles.slice(0, visibleCount).map((article, i) => (
@@ -23,7 +23,11 @@ function NewsCard({ articles, errorMessage, visibleCount, onShowMore }) {
             />
             <div className="newscard__content">
               <p className="newscard__date">
-                {new Date(article.publishedAt).toLocaleDateString()}
+                {new Date(article.publishedAt).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
               </p>
               <h3 className="newscard__title">{article.title}</h3>
               <p className="newscard__description">{article.description}</p>
