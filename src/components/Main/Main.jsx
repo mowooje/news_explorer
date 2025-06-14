@@ -11,6 +11,7 @@ function Main({
   visibleCount,
   onShowMore,
   hasSearched,
+  isLoggedIn,
 }) {
   return (
     <main className="main">
@@ -21,6 +22,7 @@ function Main({
           errorMessage={errorMessage}
           visibleCount={visibleCount}
           onShowMore={onShowMore}
+          isLoggedIn={isLoggedIn}
         />
       )}
       <About />

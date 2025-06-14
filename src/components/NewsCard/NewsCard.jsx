@@ -1,7 +1,13 @@
 import React from "react";
 import "./NewsCard.css";
 
-function NewsCard({ articles, errorMessage, visibleCount, onShowMore }) {
+function NewsCard({
+  articles,
+  errorMessage,
+  visibleCount,
+  onShowMore,
+  isLoggedIn,
+}) {
   if (errorMessage) {
     return <p className="newscard__message">{errorMessage}</p>;
   }
@@ -16,11 +22,30 @@ function NewsCard({ articles, errorMessage, visibleCount, onShowMore }) {
       <div className="newscard-section__cards">
         {articles.slice(0, visibleCount).map((article, i) => (
           <div className="newscard" key={i}>
-            <img
-              src={article.urlToImage}
-              alt={article.title}
-              className="newscard__image"
-            />
+            <div className="newscard__image-wrapper">
+              <img
+                src={article.urlToImage}
+                alt={article.title}
+                className="newscard__image"
+              />
+
+              <button
+                className={`newscard__save-icon ${
+                  isLoggedIn ? "active" : "inactive"
+                }`}
+                onClick={() => {
+                  if (!isLoggedIn) return;
+                  // handle save logic here if logged in
+                }}
+              >
+                {/* Use a filled icon if article is saved */}
+              </button>
+              {!isLoggedIn && (
+                <span className="newscard__tooltip">
+                  Sign in to save articles
+                </span>
+              )}
+            </div>
             <div className="newscard__content">
               <p className="newscard__date">
                 {new Date(article.publishedAt).toLocaleDateString("en-US", {
@@ -37,7 +62,7 @@ function NewsCard({ articles, errorMessage, visibleCount, onShowMore }) {
                 rel="noreferrer"
                 className="newscard__link"
               >
-                Read more
+                {article.source.name}
               </a>
             </div>
           </div>

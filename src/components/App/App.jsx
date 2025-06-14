@@ -109,6 +109,7 @@ function App() {
                 visibleCount={visibleCount}
                 onShowMore={handleShowMore}
                 hasSearched={hasSearched}
+                isLoggedIn={isLoggedIn}
               />
             }
           ></Route>
