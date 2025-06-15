@@ -1,5 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import {
+  authorize,
+  checkToken,
+  register as registerUser,
+} from "../../utils/auth";
+import { getItems, saveArticle, deleteArticle } from "../../utils/api";
 import "./App.css";
 import Main from "../Main/Main";
 import LoginModal from "../LoginModal/LoginModal";
@@ -19,6 +25,22 @@ function App() {
   const [visibleCount, setVisibleCount] = useState(3);
   const [hasSearched, setHasSearched] = useState(false);
 
+  // ✅ Check for stored token on app load
+  useEffect(() => {
+    const token = localStorage.getItem("jwt");
+    if (token) {
+      checkToken(token)
+        .then((userData) => {
+          setCurrentUser(userData.data);
+          setIsLoggedIn(true);
+        })
+        .catch((err) => {
+          console.error("Token check failed:", err);
+          localStorage.removeItem("jwt");
+        });
+    }
+  }, []);
+
   const handleSignInClick = () => {
     setActiveModal("login");
   };
@@ -30,16 +52,16 @@ function App() {
   // ✅ Handle registration and login
   const handleRegister = (values) => {
     setIsLoading(true);
-    registerUser(values)
-      .then(() => loginUser({ email: values.email, password: values.password }))
+    registerUser(values.name, values.email, values.password)
+      .then(() => authorize(values.email, values.password))
       .then((res) => {
         localStorage.setItem("jwt", res.token);
-        return fetchUserData(res.token);
+        return checkToken(res.token);
       })
       .then((userData) => {
-        setCurrentUser(userData);
+        setCurrentUser(userData.data);
         setIsLoggedIn(true);
-        closeActiveModal(); // ✅ Close modal after login
+        closeActiveModal();
       })
       .catch((error) => console.error("Registration or login failed:", error))
       .finally(() => setIsLoading(false));
@@ -47,13 +69,13 @@ function App() {
 
   const handleLogin = (values) => {
     setIsLoading(true);
-    loginUser(values)
+    authorize(values.email, values.password)
       .then((res) => {
         localStorage.setItem("jwt", res.token);
-        return fetchUserData(res.token);
+        return checkToken(res.token);
       })
       .then((userData) => {
-        setCurrentUser(userData);
+        setCurrentUser(userData.data);
         setIsLoggedIn(true);
         closeActiveModal();
       })

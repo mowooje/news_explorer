@@ -20,8 +20,8 @@ function NewsCard({
     <section className="newscard__section">
       <h2 className="newscard-section__title">Search Results</h2>
       <div className="newscard-section__cards">
-        {articles.slice(0, visibleCount).map((article, i) => (
-          <div className="newscard" key={i}>
+        {articles.slice(0, visibleCount).map((article) => (
+          <div className="newscard" key={article.url}>
             <div className="newscard__image-wrapper">
               <img
                 src={article.urlToImage}
