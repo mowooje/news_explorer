@@ -14,6 +14,7 @@ import SavedNews from "../SavedNews/SavedNews";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import Footer from "../Footer/Footer";
 import { getNewsArticles } from "../../utils/NewsApi";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -135,7 +136,14 @@ function App() {
               />
             }
           ></Route>
-          <Route path="/saved-news" element={<SavedNews />}></Route>
+          <Route
+            path="/saved-news"
+            element={
+              <ProtectedRoute isLoggedIn={isLoggedIn}>
+                <SavedNews />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
         <Footer />
       </div>
