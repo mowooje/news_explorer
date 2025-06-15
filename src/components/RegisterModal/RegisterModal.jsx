@@ -46,12 +46,13 @@ function RegisterModal({
       onSubmit={handleSubmit}
       onClose={onClose}
     >
-      <label className="modal__label">
+      <label className="modal__label" htmlFor="email-register">
         Email
         <input
           className="modal__input"
           name="email"
           type="email"
+          id="email-register"
           placeholder="Enter email"
           value={values.email || ""}
           onChange={handleChange}
@@ -60,13 +61,13 @@ function RegisterModal({
       </label>
       {errors.email && <span className="modal__error">{errors.email}</span>}
 
-      <label className="modal__label" htmlFor="password-login">
+      <label className="modal__label" htmlFor="password-register">
         Password
       </label>
       <input
         type="password"
         className="modal__input"
-        id="password-login"
+        id="password-register"
         name="password"
         placeholder="Enter password"
         value={values.password || ""}
