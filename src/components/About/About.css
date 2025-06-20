@@ -35,7 +35,7 @@
 }
 
 .about__author-title {
-  font-family: "Roboto Slab", Arial, Helvetica, sans-serif;
+  font-family: "roboto-slab", Arial, Helvetica, sans-serif;
   font-weight: 400;
   font-size: 40px;
   line-height: 46px;
@@ -44,7 +44,7 @@
 }
 
 .about__author-paragraph {
-  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-family: "roboto", Arial, Helvetica, sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
