@@ -11,6 +11,7 @@
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 100;
+  overflow-x: hidden;
 }
 
 .modal_opened {
@@ -170,4 +171,23 @@
 .modal__to-register:hover {
   opacity: 0.8;
   cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .modal {
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+
+  .modal__content {
+    width: 100%;
+    max-width: 100%;
+    padding: 24px;
+    box-sizing: border-box;
+  }
+
+  .modal__close {
+    top: -36px;
+    right: 0;
+  }
 }

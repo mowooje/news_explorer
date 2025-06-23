@@ -54,3 +54,60 @@
   opacity: 0.8;
   transition: opacity 0.3s ease;
 }
+
+@media screen and (max-width: 320px) {
+  .navigation {
+    background: #1a1b22;
+  }
+
+  .navigation__content {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    padding: 16px;
+
+    gap: 20px;
+  }
+
+  .navigation__right {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 16px;
+
+    width: 100%;
+  }
+
+  .navigation__sign-in-btn {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navigation__content {
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px 24px;
+  }
+
+  .navigation__right {
+    gap: 24px;
+  }
+
+  .navigation__logo {
+    height: 26px;
+  }
+
+  .navigation__sign-in-btn {
+    width: auto;
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+
+  .navigation__home-link {
+    font-size: 16px;
+  }
+}
