@@ -62,3 +62,24 @@
 .searchform__btn:active {
   background-color: #2a65cc;
 }
+
+@media screen and (max-width: 768px) {
+  .searchform {
+    padding: 0 50px 80px 40px;
+    max-width: 608px;
+  }
+
+  .searchform__input {
+    width: 100%;
+    padding: 18px 142px 18px 24px;
+    height: 56px;
+    border-radius: 100px;
+  }
+
+  .searchform__btn {
+    height: 56px;
+    padding: 0 45px;
+    right: 50px;
+    top: 0;
+  }
+}

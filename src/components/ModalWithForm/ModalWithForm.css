@@ -181,13 +181,12 @@
 
   .modal__content {
     width: 100%;
-    max-width: 100%;
-    padding: 24px;
+    padding: 34px 36px 28px;
     box-sizing: border-box;
   }
 
   .modal__close {
-    top: -36px;
-    right: 0;
+    top: -50px;
+    right: -40px;
   }
 }

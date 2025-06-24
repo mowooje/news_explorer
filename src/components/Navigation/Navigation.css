@@ -88,22 +88,23 @@
 
 @media screen and (max-width: 768px) {
   .navigation__content {
-    flex-wrap: wrap;
-    gap: 16px;
-    padding: 16px 24px;
-  }
-
-  .navigation__right {
-    gap: 24px;
+    flex-wrap: nowrap; /* ✅ Prevent wrapping */
+    padding: 20px 40px; /* ✅ Match Figma spacing */
+    gap: 0;
   }
 
   .navigation__logo {
-    height: 26px;
+    height: 28px; /* ✅ Slightly smaller logo for tablet */
+  }
+
+  .navigation__right {
+    gap: 40px; /* ✅ Space between “Home” and “Sign in” */
   }
 
   .navigation__sign-in-btn {
-    width: auto;
-    padding: 12px 24px;
+    width: 152px;
+    height: 44px;
+    padding: 0 24px;
     font-size: 16px;
   }
 

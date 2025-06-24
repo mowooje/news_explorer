@@ -102,34 +102,45 @@
 
 @media screen and (max-width: 768px) {
   .about {
-    padding: 40px 40px 61px 40px;
-    height: 354px;
-    display: flex;
+    padding: 60px 0 60px;
   }
 
   .about__wrapper {
-    max-width: 700px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    max-width: 768px;
+    padding: 0 40px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  .about__author-wrapper {
+    width: 232px;
+    height: 232px;
+    flex-shrink: 0;
+    margin: 0 32px 0 0;
   }
 
   .about__author-image {
-    width: 232px;
-    height: 232px;
-    margin-right: 32px;
-    margin-left: 0;
+    border-radius: 50%;
   }
 
   .about__author {
-    margin: 0;
+    max-width: 100%;
+    align-items: flex-start;
+    transform: translateY(-20px);
   }
 
   .about__author-title {
     font-size: 30px;
     line-height: 40px;
-    margin-bottom: 16px;
+    margin: 0 0 16px 0;
   }
 
   .about__author-paragraph {
-    margin-bottom: 24px;
-    font-size: 17px;
+    font-size: 18px;
+    line-height: 24px;
   }
 }

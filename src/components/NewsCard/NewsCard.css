@@ -62,13 +62,25 @@
   aspect-ratio: 16 / 9;
 }
 
-.newscard__save-icon {
+.newscard__save-wrapper {
   position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.newscard__save-wrapper:hover .newscard__tooltip {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.newscard__save-icon {
   background-color: #fff;
   width: 40px;
   height: 40px;
-  top: 24px;
-  right: 24px;
   background-image: url(../../assets/save-icon-default.svg);
   background-repeat: no-repeat;
   background-position: center;
@@ -78,7 +90,7 @@
   z-index: 2;
 }
 
-.newscard__save-icon.inactive:hover {
+.newscard__save-icon:not(.active):hover {
   background-image: url(../../assets/save-icon-hover.svg);
 }
 
@@ -88,9 +100,10 @@
 
 .newscard__tooltip {
   position: absolute;
-  top: 24px;
-  right: 72px;
-  z-index: 3;
+  top: 0;
+  right: calc(100% + 8px);
+  height: 40px;
+  align-items: center;
   background-color: #fff;
   color: #000;
   padding: 10px 16px;
@@ -105,12 +118,6 @@
   visibility: hidden;
   pointer-events: none;
   transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.newscard__save-icon.inactive:hover + .newscard__tooltip {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
 }
 
 .newscard__content {
@@ -186,4 +193,56 @@
 
 .newscard__button:hover {
   background-color: #e8e8e8;
+}
+
+@media screen and (max-width: 768px) {
+  .newscard__section {
+    padding: 40px;
+  }
+
+  .newscard-section__title {
+    font-size: 34px;
+    line-height: 40px;
+    margin: 0 0 32px 0;
+  }
+
+  .newscard-section__cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .newscard {
+    height: auto;
+    max-width: none;
+  }
+
+  .newscard__image-wrapper,
+  .newscard__image {
+    height: 196px;
+  }
+
+  .newscard__save-icon {
+    top: 8px;
+    right: 8px;
+  }
+
+  .newscard__content {
+    padding: 16px;
+  }
+
+  .newscard__title {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .newscard__description {
+    font-size: 16px;
+    line-height: 22px;
+    -webkit-line-clamp: 4;
+    margin-bottom: 16px;
+  }
+
+  .newscard__button {
+    margin-top: 32px;
+  }
 }
