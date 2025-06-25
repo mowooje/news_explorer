@@ -18,6 +18,13 @@
   width: auto;
 }
 
+.navigation__menu-icon {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 .navigation__right {
   display: flex;
   align-items: center;
@@ -57,28 +64,34 @@
 
 @media screen and (max-width: 320px) {
   .navigation {
-    background: #1a1b22;
+    background: none;
+    padding: 0; /* remove any default spacing */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
 
   .navigation__content {
     flex-direction: column;
-
     align-items: flex-start;
-
     padding: 16px;
+    gap: 16px;
+  }
 
-    gap: 20px;
+  .navigation__logo {
+    height: 24px;
+    width: auto;
+  }
+
+  .navigation__menu-icon {
+    display: block;
+    align-self: flex-end;
   }
 
   .navigation__right {
-    display: flex;
-    flex-direction: column;
+    display: none;
+  }
 
-    align-items: flex-start;
-
-    gap: 16px;
-
-    width: 100%;
+  .navigation__home-link {
+    font-size: 16px;
   }
 
   .navigation__sign-in-btn {
@@ -88,17 +101,17 @@
 
 @media screen and (max-width: 768px) {
   .navigation__content {
-    flex-wrap: nowrap; /* ✅ Prevent wrapping */
-    padding: 20px 40px; /* ✅ Match Figma spacing */
+    flex-wrap: nowrap;
+    padding: 20px 40px;
     gap: 0;
   }
 
   .navigation__logo {
-    height: 28px; /* ✅ Slightly smaller logo for tablet */
+    height: 28px;
   }
 
   .navigation__right {
-    gap: 40px; /* ✅ Space between “Home” and “Sign in” */
+    gap: 40px;
   }
 
   .navigation__sign-in-btn {

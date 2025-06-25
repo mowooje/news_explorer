@@ -54,24 +54,22 @@
 
 @media screen and (max-width: 320px) {
   .about {
-    padding: 32px 24px 128px 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 32px 16px 40px;
     background-color: #fff;
   }
 
   .about__wrapper {
-    flex-direction: column;
+    display: flex;
+    flex-direction: column; /* force vertical stacking */
     align-items: center;
-    text-align: center;
     padding: 0;
+    text-align: left;
   }
 
   .about__author-wrapper {
     height: 272px;
     width: 272px;
-    margin: 0 auto 24px;
+    margin: 0 0 24px 0;
   }
 
   .about__author-image {
@@ -83,20 +81,21 @@
 
   .about__author {
     max-width: 100%;
-    align-items: center;
+    padding: 0;
+    align-items: flex-start;
   }
 
   .about__author-title {
-    font-size: 24px;
-    line-height: 32px;
+    font-size: 30px;
+    line-height: 40px;
     margin: 0 0 16px 0;
-    text-align: center;
+    text-align: left;
   }
 
   .about__author-paragraph {
-    font-size: 14px;
-    line-height: 20px;
-    text-align: center;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: left;
   }
 }
 

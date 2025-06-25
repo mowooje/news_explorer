@@ -55,17 +55,21 @@
 
   .header__text-container {
     padding-top: 30px;
-
     padding-left: 16px;
     padding-right: 16px;
+    align-items: flex-start;
+    text-align: left;
   }
 
   .header__title {
     font-size: 36px;
     line-height: 40px;
+    margin: 0;
   }
 
   .header__subtitle {
+    font-size: 18px;
+    line-height: 24px;
     margin: 16px 0 42px;
   }
 }
@@ -86,8 +90,8 @@
     margin: 0 auto;
     max-width: 608px;
     width: 100%;
-    text-align: left; /* ✅ changed from center to left */
-    align-items: flex-start; /* ✅ changed from center to flex-start */
+    text-align: left;
+    align-items: flex-start;
     box-sizing: border-box;
   }
 
