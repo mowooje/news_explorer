@@ -10,20 +10,24 @@ function SearchForm({ onSearch }) {
     onSearch(keyword);
   };
   return (
-    <form className="searchform" onSubmit={handleSubmit}>
-      <section className="searchform__container">
-        <input
-          type="text"
-          className="searchform__input"
-          placeholder="Enter topic"
-          value={keyword}
-          onChange={(e) => setKeyword(e.target.value)}
-        />
-        <button type="submit" className="searchform__btn">
-          Search
-        </button>
-      </section>
-    </form>
+    <div className="searchform__container">
+      <form className="searchform" onSubmit={handleSubmit}>
+        <div className="searchform__field-wrapper">
+          <input
+            type="text"
+            name="search"
+            className="searchform__input"
+            placeholder="Enter topic"
+            required
+            value={keyword}
+            onChange={(e) => setKeyword(e.target.value)}
+          />
+          <button type="submit" className="searchform__btn">
+            Search
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }
 export default SearchForm;
