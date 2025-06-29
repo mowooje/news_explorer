@@ -47,6 +47,12 @@
   right: -41px;
   border: none;
   background: transparent;
+  cursor: pointer;
+}
+
+.modal__close:focus-visible {
+  outline: 2px solid #2f71e5;
+  border-radius: 8px;
 }
 
 .modal__label {
@@ -77,6 +83,10 @@
   margin-top: 9px;
   padding: 0 0 10px;
   color: #000000;
+}
+
+.modal__input:focus {
+  border-bottom-color: #2f71e5;
 }
 
 .modal__error {
@@ -124,6 +134,11 @@
   margin-top: 39px;
 }
 
+.modal__submit:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
 .modal__submit:disabled {
   background-color: #e6e8eb;
   color: #b6bcbf;
@@ -162,10 +177,16 @@
   border: none;
   background-color: transparent;
   padding: 0;
-  margin: 0; /* Remove default margin */
+  margin: 0;
   display: inline-flex;
   align-items: center;
   height: fit-content;
+  cursor: pointer;
+}
+
+.modal__to-register:focus-visible {
+  outline: 2px solid #2f71e5;
+  border-radius: 4px;
 }
 
 .modal__to-register:hover {
