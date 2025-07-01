@@ -11,7 +11,7 @@ function NewsCard({
   const [savedArticles, setSavedArticles] = useState([]);
 
   if (errorMessage) {
-    return <p className="newscard__message">{errorMessage}</p>;
+    return <p className="newscard-section__message">{errorMessage}</p>;
   }
 
   if (!articles || articles.length === 0) {
@@ -19,7 +19,7 @@ function NewsCard({
   }
 
   return (
-    <section className="newscard__section">
+    <section className="newscard-section">
       <h2 className="newscard-section__title">Search Results</h2>
       <div className="newscard-section__cards">
         {articles.slice(0, visibleCount).map((article) => {
@@ -90,7 +90,7 @@ function NewsCard({
       </div>
 
       {visibleCount < articles.length && (
-        <button className="newscard__button" onClick={onShowMore}>
+        <button className="newscard-section__button" onClick={onShowMore}>
           Show more
         </button>
       )}
