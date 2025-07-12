@@ -213,6 +213,10 @@
 }
 
 @media screen and (max-width: 320px) {
+  .modal {
+    padding: 0;
+  }
+
   .modal__content {
     padding: 24px 16px;
     top: -70px;
