@@ -5,7 +5,7 @@ import logo from "../../assets/NewsExplorer.svg";
 import menuIcon from "../../assets/menu-icon.svg";
 import closeButton from "../../assets/close-button.svg";
 
-function Navigation({ handleSignInClick }) {
+function Navigation({ handleSignInClick, isLoggedIn }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
@@ -31,12 +31,18 @@ function Navigation({ handleSignInClick }) {
           <Link to="/" className="navigation__home-link">
             Home
           </Link>
-          <button
-            className="navigation__sign-in-btn"
-            onClick={handleSignInClick}
-          >
-            Sign in
-          </button>
+          {isLoggedIn ? (
+            <Link to="/saved-news" className="navigation__home-link">
+              Saved articles
+            </Link>
+          ) : (
+            <button
+              className="navigation__sign-in-btn"
+              onClick={handleSignInClick}
+            >
+              Sign in
+            </button>
+          )}
         </div>
 
         {isMobileMenuOpen && (
@@ -62,15 +68,26 @@ function Navigation({ handleSignInClick }) {
             >
               Home
             </Link>
-            <button
-              className="navigation__sign-in-btn"
-              onClick={() => {
-                handleSignInClick();
-                setIsMobileMenuOpen(false);
-              }}
-            >
-              Sign in
-            </button>
+
+            {isLoggedIn ? (
+              <Link
+                to="/saved-news"
+                className="navigation__home-link"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Saved articles
+              </Link>
+            ) : (
+              <button
+                className="navigation__sign-in-btn"
+                onClick={() => {
+                  handleSignInClick();
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                Sign in
+              </button>
+            )}
           </div>
         )}
       </div>

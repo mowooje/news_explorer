@@ -21,6 +21,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
+  const [isAuthChecked, setIsAuthChecked] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
   const [visibleCount, setVisibleCount] = useState(3);
@@ -38,7 +39,10 @@ function App() {
         .catch((err) => {
           console.error("Token check failed:", err);
           localStorage.removeItem("jwt");
-        });
+        })
+        .finally(() => setIsAuthChecked(true));
+    } else {
+      setIsAuthChecked(true);
     }
   }, []);
 
@@ -118,6 +122,7 @@ function App() {
         <Header
           handleSignInClick={handleSignInClick}
           onSearch={handleSearchSubmit}
+          isLoggedIn={isLoggedIn}
         />
 
         <Routes>
