@@ -1,21 +1,26 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Navigation.css";
-import logo from "../../assets/NewsExplorer.svg";
+import logoWhite from "../../assets/NewsExplorer.svg";
+import logoBlack from "../../assets/NewsExplorer-black.svg";
 import menuIcon from "../../assets/menu-icon.svg";
 import closeButton from "../../assets/close-button.svg";
 import logoutIcon from "../../assets/logout-icon.svg";
 
 function Navigation({ handleSignInClick, isLoggedIn, currentUser, onLogout }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const isSavedNewsPage = location.pathname === "/saved-news";
+  const logoSrc = isSavedNewsPage ? logoBlack : logoWhite;
+  const navThemeClass = isSavedNewsPage ? "navigation_theme_light" : "";
 
   return (
-    <nav className="navigation">
+    <nav className={`navigation ${navThemeClass}`}>
       <div className="navigation__content">
         <Link to="/">
           <img
             className="navigation__logo"
-            src={logo}
+            src={logoSrc}
             alt="NewsExplorer logo"
           />
         </Link>
