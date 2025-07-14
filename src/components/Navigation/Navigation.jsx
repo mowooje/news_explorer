@@ -4,8 +4,9 @@ import "./Navigation.css";
 import logo from "../../assets/NewsExplorer.svg";
 import menuIcon from "../../assets/menu-icon.svg";
 import closeButton from "../../assets/close-button.svg";
+import logoutIcon from "../../assets/logout-icon.svg";
 
-function Navigation({ handleSignInClick, isLoggedIn }) {
+function Navigation({ handleSignInClick, isLoggedIn, currentUser, onLogout }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
@@ -32,9 +33,19 @@ function Navigation({ handleSignInClick, isLoggedIn }) {
             Home
           </Link>
           {isLoggedIn ? (
-            <Link to="/saved-news" className="navigation__home-link">
-              Saved articles
-            </Link>
+            <>
+              <Link to="/saved-news" className="navigation__home-link">
+                Saved articles
+              </Link>
+              <button className="navigation__sign-out-btn" onClick={onLogout}>
+                {currentUser?.name}
+                <img
+                  src={logoutIcon}
+                  alt="Sign out icon"
+                  className="navigation__logout-icon"
+                />
+              </button>
+            </>
           ) : (
             <button
               className="navigation__sign-in-btn"
@@ -70,13 +81,29 @@ function Navigation({ handleSignInClick, isLoggedIn }) {
             </Link>
 
             {isLoggedIn ? (
-              <Link
-                to="/saved-news"
-                className="navigation__home-link"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Saved articles
-              </Link>
+              <>
+                <Link
+                  to="/saved-news"
+                  className="navigation__home-link"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Saved articles
+                </Link>
+                <button
+                  className="navigation__sign-out-btn"
+                  onClick={() => {
+                    onLogout();
+                    setIsMobileMenuOpen(false);
+                  }}
+                >
+                  {currentUser?.name}
+                  <img
+                    src={logoutIcon}
+                    alt="Sign out icon"
+                    className="navigation__logout-icon"
+                  />
+                </button>
+              </>
             ) : (
               <button
                 className="navigation__sign-in-btn"

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import {
   authorize,
   checkToken,
@@ -26,6 +26,7 @@ function App() {
   const [errorMessage, setErrorMessage] = useState("");
   const [visibleCount, setVisibleCount] = useState(3);
   const [hasSearched, setHasSearched] = useState(false);
+  const navigate = useNavigate();
 
   // ✅ Check for stored token on app load
   useEffect(() => {
@@ -88,6 +89,14 @@ function App() {
       .finally(() => setIsLoading(false));
   };
 
+  // ✅ Handle signout
+  const handleLogout = () => {
+    localStorage.removeItem("jwt");
+    setIsLoggedIn(false);
+    setCurrentUser(null);
+    navigate("/");
+  };
+
   // ✅ NewsAPi
   const handleSearchSubmit = (keyword) => {
     setSearchResults([]);
@@ -123,6 +132,8 @@ function App() {
           handleSignInClick={handleSignInClick}
           onSearch={handleSearchSubmit}
           isLoggedIn={isLoggedIn}
+          currentUser={currentUser}
+          onLogout={handleLogout}
         />
 
         <Routes>

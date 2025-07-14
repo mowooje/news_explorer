@@ -45,6 +45,35 @@
   text-decoration: none;
 }
 
+.navigation__sign-out-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px; /* Adds space between the name and the icon */
+  height: 48px;
+  padding: 0 24px;
+  border-radius: 100px;
+  border: 1px solid #ffffff;
+  background: transparent;
+  color: #ffffff;
+  font-family: "roboto", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+.navigation__sign-out-btn:hover {
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.navigation__logout-icon {
+  width: 18px;
+  height: 18px;
+  filter: brightness(0) invert(1); /* Ensures icon is white */
+}
+
 .navigation__sign-in-btn {
   width: 176px;
   height: 48px;
@@ -168,6 +197,21 @@
     z-index: 1000;
   }
 
+  .navigation__mobile-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .navigation__mobile-links {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    width: 100%;
+  }
+
   .navigation__close-icon {
     position: absolute;
     width: 24px;
@@ -189,6 +233,24 @@
     width: 117px;
     height: 24px;
     margin-bottom: 16px;
+  }
+
+  .navigation__mobile-menu .navigation__home-link {
+    font-size: 18px;
+    line-height: 56px;
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  .navigation__mobile-menu .navigation__sign-in-btn,
+  .navigation__mobile-menu .navigation__sign-out-btn {
+    width: calc(100% - 32px); /* Adjust for padding */
+    margin: 16px auto 0;
+    height: 56px;
+    border-radius: 100px;
+    border: 1px solid #ffffff;
+    text-align: center;
+    font-size: 18px;
   }
 
   .navigation__mobile-menu .navigation__home-link,
