@@ -23,6 +23,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [isAuthChecked, setIsAuthChecked] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
+  const [savedArticles, setSavedArticles] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
   const [visibleCount, setVisibleCount] = useState(3);
   const [hasSearched, setHasSearched] = useState(false);
@@ -46,6 +47,25 @@ function App() {
       setIsAuthChecked(true);
     }
   }, []);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      getItems()
+        .then((articles) => {
+          if (Array.isArray(articles.data)) {
+            setSavedArticles(articles.data);
+          } else {
+            setSavedArticles([]);
+          }
+        })
+        .catch((err) => {
+          console.error("Failed to get saved articles:", err);
+          setSavedArticles([]);
+        });
+    } else {
+      setSavedArticles([]);
+    }
+  }, [isLoggedIn]);
 
   const handleSignInClick = () => {
     setActiveModal("login");
@@ -87,6 +107,30 @@ function App() {
       })
       .catch((error) => console.error("Login failed:", error))
       .finally(() => setIsLoading(false));
+  };
+
+  // ✅ Handle saving a new article
+  const handleNewsSaved = (article) => {
+    saveArticle(article)
+      .then((newArticle) => {
+        setSavedArticles([newArticle.data, ...savedArticles]);
+      })
+      .catch((err) => {
+        console.error("Failed to save article:", err);
+      });
+  };
+
+  // ✅ Handle removing a saved article
+  const handleRemoveArticle = (article) => {
+    deleteArticle(article._id)
+      .then(() => {
+        setSavedArticles((prevArticles) =>
+          prevArticles.filter((item) => item._id !== article._id)
+        );
+      })
+      .catch((err) => {
+        console.error("Failed to delete article:", err);
+      });
   };
 
   // ✅ Handle signout
@@ -149,6 +193,8 @@ function App() {
                 onShowMore={handleShowMore}
                 hasSearched={hasSearched}
                 isLoggedIn={isLoggedIn}
+                handleNewsSaved={handleNewsSaved}
+                savedArticles={savedArticles}
               />
             }
           ></Route>
@@ -156,7 +202,11 @@ function App() {
             path="/saved-news"
             element={
               <ProtectedRoute isLoggedIn={isLoggedIn}>
-                <SavedNews />
+                <SavedNews
+                  savedArticles={savedArticles}
+                  currentUser={currentUser}
+                  handleRemoveArticle={handleRemoveArticle}
+                />
               </ProtectedRoute>
             }
           />

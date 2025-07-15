@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./NewsCard.css";
 
 function NewsCard({
@@ -7,9 +7,10 @@ function NewsCard({
   visibleCount,
   onShowMore,
   isLoggedIn,
+  handleNewsSaved,
+  handleRemoveArticle,
+  savedArticles = [],
 }) {
-  const [savedArticles, setSavedArticles] = useState([]);
-
   if (errorMessage) {
     return <p className="newscard-section__message">{errorMessage}</p>;
   }
@@ -22,8 +23,8 @@ function NewsCard({
     <section className="newscard-section">
       <h2 className="newscard-section__title">Search Results</h2>
       <div className="newscard-section__cards">
-        {articles.slice(0, visibleCount).map((article) => {
-          const isSaved = savedArticles.includes(article.url);
+        {articles.slice(0, visibleCount).map((article, index) => {
+          const isSaved = savedArticles.some((a) => a?.link === article.url);
 
           return (
             <div className="newscard" key={article.url}>
@@ -43,14 +44,12 @@ function NewsCard({
                       if (!isLoggedIn) return;
 
                       if (isSaved) {
-                        setSavedArticles((prevSaved) =>
-                          prevSaved.filter((url) => url !== article.url)
+                        const articleToRemove = savedArticles.find(
+                          (a) => a.link === article.url
                         );
+                        handleRemoveArticle(articleToRemove);
                       } else {
-                        setSavedArticles((prevSaved) => [
-                          ...prevSaved,
-                          article.url,
-                        ]);
+                        handleNewsSaved(article);
                       }
                     }}
                     aria-label="Save article"

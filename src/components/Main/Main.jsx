@@ -12,6 +12,8 @@ function Main({
   onShowMore,
   hasSearched,
   isLoggedIn,
+  handleNewsSaved,
+  savedArticles,
 }) {
   return (
     <main className="main">
@@ -23,6 +25,8 @@ function Main({
           visibleCount={visibleCount}
           onShowMore={onShowMore}
           isLoggedIn={isLoggedIn}
+          handleNewsSaved={handleNewsSaved}
+          savedArticles={savedArticles}
         />
       )}
       <About />
