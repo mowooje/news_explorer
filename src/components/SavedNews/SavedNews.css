@@ -7,7 +7,7 @@
 }
 
 .saved-news__info {
-  padding: 40px 40px 56px 40px;
+  padding: 40px 104px 56px 104px;
   background-color: white;
 }
 
@@ -55,15 +55,15 @@
 }
 
 .saved-news__list-wrapper {
-  padding: 62px 106px 62px 102px;
+  padding: 62px 104px;
   max-width: 1440px;
-  margin: 0 auto;
+  margin: 0;
 }
 
 .saved-news__list {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
   gap: 16px;
   list-style-type: none;

@@ -3,11 +3,9 @@ import NewsCard from "../NewsCard/NewsCard";
 
 function SavedNews({ currentUser, savedArticles, handleRemoveArticle }) {
   const articlesToMap = savedArticles || [];
-
   const validArticles = articlesToMap.filter(Boolean);
 
   const allKeywords = validArticles.map((item) => item.keyword).filter(Boolean);
-
   const uniqueKeywords = [...new Set(allKeywords)];
 
   const keywordsText =
@@ -35,13 +33,14 @@ function SavedNews({ currentUser, savedArticles, handleRemoveArticle }) {
       </div>
       <div className="saved-news__list-wrapper">
         <ul className="saved-news__list">
-          {validArticles.map((item) => (
-            <NewsCard
-              key={item._id}
-              data={item}
-              handleRemoveArticle={() => handleRemoveArticle(item)}
-            />
-          ))}
+          <NewsCard
+            articles={validArticles}
+            visibleCount={validArticles.length}
+            isLoggedIn={true}
+            handleRemoveArticle={handleRemoveArticle}
+            savedArticles={validArticles}
+            isSavedPage={true}
+          />
         </ul>
       </div>
     </div>

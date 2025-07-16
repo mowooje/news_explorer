@@ -10,6 +10,7 @@ function NewsCard({
   handleNewsSaved,
   handleRemoveArticle,
   savedArticles = [],
+  isSavedPage = false,
 }) {
   if (errorMessage) {
     return <p className="newscard-section__message">{errorMessage}</p>;
@@ -21,7 +22,10 @@ function NewsCard({
 
   return (
     <section className="newscard-section">
-      <h2 className="newscard-section__title">Search Results</h2>
+      {!isSavedPage && (
+        <h2 className="newscard-section__title">Search Results</h2>
+      )}
+
       <div className="newscard-section__cards">
         {articles.slice(0, visibleCount).map((article, index) => {
           const isSaved = savedArticles.some((a) => a?.link === article.url);
@@ -88,7 +92,7 @@ function NewsCard({
         })}
       </div>
 
-      {visibleCount < articles.length && (
+      {!isSavedPage && visibleCount < articles.length && (
         <button className="newscard-section__button" onClick={onShowMore}>
           Show more
         </button>

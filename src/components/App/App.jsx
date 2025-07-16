@@ -113,7 +113,7 @@ function App() {
   const handleNewsSaved = (article) => {
     saveArticle(article)
       .then((newArticle) => {
-        setSavedArticles([newArticle.data, ...savedArticles]);
+        setSavedArticles([newArticle, ...savedArticles]);
       })
       .catch((err) => {
         console.error("Failed to save article:", err);
