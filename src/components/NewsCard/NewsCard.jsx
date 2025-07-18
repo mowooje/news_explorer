@@ -27,8 +27,13 @@ function NewsCard({
       )}
 
       <div className="newscard-section__cards">
-        {articles.slice(0, visibleCount).map((article, index) => {
-          const isSaved = savedArticles.some((a) => a?.link === article.url);
+        {articles.slice(0, visibleCount).map((article) => {
+          const isSaved = savedArticles.some(
+            (savedArticle) =>
+              (savedArticle.link || savedArticle.url) === article.url
+          );
+
+          const keyword = article.keyword;
 
           return (
             <div className="newscard" key={article.url}>
@@ -38,32 +43,55 @@ function NewsCard({
                   alt={article.title}
                   className="newscard__image"
                 />
+
+                {isSavedPage && keyword && (
+                  <div className="newscard__keyword">{keyword}</div>
+                )}
+
                 <div className="newscard__save-wrapper">
                   <button
                     type="button"
                     className={`newscard__save-icon ${
-                      isLoggedIn && isSaved ? "active" : ""
+                      isSavedPage
+                        ? "newscard__trash-icon"
+                        : isLoggedIn && isSaved
+                        ? "active"
+                        : ""
                     }`}
                     onClick={() => {
                       if (!isLoggedIn) return;
 
-                      if (isSaved) {
+                      if (isSavedPage) {
+                        handleRemoveArticle(article);
+                      } else if (isSaved) {
                         const articleToRemove = savedArticles.find(
-                          (a) => a.link === article.url
+                          (savedArticle) =>
+                            (savedArticle.link || savedArticle.url) ===
+                            article.url
                         );
                         handleRemoveArticle(articleToRemove);
                       } else {
                         handleNewsSaved(article);
                       }
                     }}
-                    aria-label="Save article"
+                    aria-label={
+                      isSavedPage
+                        ? "Remove saved article"
+                        : isSaved
+                        ? "Unsave article"
+                        : "Save article"
+                    }
                   />
                   <span
                     className={`newscard__tooltip ${
-                      !isLoggedIn ? "visible" : ""
+                      isSavedPage || !isLoggedIn ? "visible" : ""
                     }`}
                   >
-                    Sign in to save articles
+                    {isSavedPage
+                      ? "Remove from saved"
+                      : !isLoggedIn
+                      ? "Sign in to save articles"
+                      : ""}
                   </span>
                 </div>
               </div>

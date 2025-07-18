@@ -27,6 +27,7 @@ function App() {
   const [errorMessage, setErrorMessage] = useState("");
   const [visibleCount, setVisibleCount] = useState(3);
   const [hasSearched, setHasSearched] = useState(false);
+  const [searchKeyword, setSearchKeyword] = useState("");
   const navigate = useNavigate();
 
   // ✅ Check for stored token on app load
@@ -111,7 +112,12 @@ function App() {
 
   // ✅ Handle saving a new article
   const handleNewsSaved = (article) => {
-    saveArticle(article)
+    const articleWithKeyword = {
+      ...article,
+      keyword: searchKeyword,
+    };
+
+    saveArticle(articleWithKeyword)
       .then((newArticle) => {
         setSavedArticles([newArticle, ...savedArticles]);
       })
@@ -155,6 +161,7 @@ function App() {
           setErrorMessage("Nothing Found");
         } else {
           setSearchResults(res.articles);
+          setSearchKeyword(keyword);
         }
       })
       .catch(() => {
@@ -195,6 +202,7 @@ function App() {
                 isLoggedIn={isLoggedIn}
                 handleNewsSaved={handleNewsSaved}
                 savedArticles={savedArticles}
+                handleRemoveArticle={handleRemoveArticle}
               />
             }
           ></Route>

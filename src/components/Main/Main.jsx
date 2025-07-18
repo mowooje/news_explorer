@@ -13,6 +13,7 @@ function Main({
   hasSearched,
   isLoggedIn,
   handleNewsSaved,
+  handleRemoveArticle,
   savedArticles,
 }) {
   return (
@@ -26,6 +27,7 @@ function Main({
           onShowMore={onShowMore}
           isLoggedIn={isLoggedIn}
           handleNewsSaved={handleNewsSaved}
+          handleRemoveArticle={handleRemoveArticle} //
           savedArticles={savedArticles}
         />
       )}
