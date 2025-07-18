@@ -36,7 +36,7 @@ function NewsCard({
           const keyword = article.keyword;
 
           return (
-            <div className="newscard" key={article.url}>
+            <div className="newscard" key={article._id || article.url}>
               <div className="newscard__image-wrapper">
                 <img
                   src={article.urlToImage}

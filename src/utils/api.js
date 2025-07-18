@@ -33,7 +33,7 @@ export function saveArticle(article) {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve({
-        _id: "saved123",
+        _id: `saved_${Date.now()}`,
         ...article,
       });
     }, 300);
