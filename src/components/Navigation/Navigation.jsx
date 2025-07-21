@@ -4,6 +4,7 @@ import "./Navigation.css";
 import logoWhite from "../../assets/NewsExplorer.svg";
 import logoBlack from "../../assets/NewsExplorer-black.svg";
 import menuIcon from "../../assets/menu-icon.svg";
+import menuIconBlack from "../../assets/menu-icon-black.svg";
 import closeButton from "../../assets/close-button.svg";
 import logoutIcon from "../../assets/logout-icon.svg";
 
@@ -12,6 +13,7 @@ function Navigation({ handleSignInClick, isLoggedIn, currentUser, onLogout }) {
   const location = useLocation();
   const isSavedNewsPage = location.pathname === "/saved-news";
   const logoSrc = isSavedNewsPage ? logoBlack : logoWhite;
+  const menuIconSrc = isSavedNewsPage ? menuIconBlack : menuIcon;
   const navThemeClass = isSavedNewsPage ? "navigation_theme_light" : "";
 
   return (
@@ -30,7 +32,7 @@ function Navigation({ handleSignInClick, isLoggedIn, currentUser, onLogout }) {
           onClick={() => setIsMobileMenuOpen(true)}
           aria-label="Open menu"
         >
-          <img src={menuIcon} alt="menu icon" />
+          <img src={menuIconSrc} alt="menu icon" />
         </button>
 
         <div className="navigation__right">

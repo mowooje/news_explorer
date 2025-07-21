@@ -138,6 +138,10 @@
     background-repeat: no-repeat;
   }
 
+  .header_theme_light {
+    height: auto;
+  }
+
   .header__text-container {
     padding-top: 30px;
     padding-left: 16px;
