@@ -82,6 +82,13 @@
     background-repeat: no-repeat;
   }
 
+  .header_theme_light {
+    padding: 0;
+    height: auto;
+    background-image: none;
+    background-color: #ffffff;
+  }
+
   .header__text-container {
     padding: 38px 80px 0 100px;
     margin: 0 auto;

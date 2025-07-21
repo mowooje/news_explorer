@@ -71,4 +71,19 @@
 }
 
 @media screen and (max-width: 768px) {
+  .saved-news {
+    padding: 0;
+  }
+
+  .saved-news__info {
+    padding: 24px 40px 28px 40px;
+  }
+
+  .saved-news__title {
+    width: 100%;
+  }
+
+  .saved-news__list-wrapper {
+    padding: 0;
+  }
 }

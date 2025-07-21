@@ -66,7 +66,7 @@ function Navigation({ handleSignInClick, isLoggedIn, currentUser, onLogout }) {
             <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
               <img
                 className="navigation__mobile-logo"
-                src={logo}
+                src={logoSrc}
                 alt="NewsExplorer logo"
               />
             </Link>
