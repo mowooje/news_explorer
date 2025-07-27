@@ -23,6 +23,10 @@
 }
 
 .footer__links {
+  font-family: "roboto_400", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
   display: flex;
   gap: 40px;
 }

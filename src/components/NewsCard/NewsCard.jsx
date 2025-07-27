@@ -1,5 +1,6 @@
 import React from "react";
 import "./NewsCard.css";
+import notFoundIcon from "../../assets/not-found.svg";
 
 function NewsCard({
   articles,
@@ -13,7 +14,25 @@ function NewsCard({
   isSavedPage = false,
 }) {
   if (errorMessage) {
-    return <p className="newscard-section__message">{errorMessage}</p>;
+    return (
+      <div className="not-found">
+        {errorMessage === "Nothing Found" && (
+          <img
+            className="not-found__icon"
+            src={notFoundIcon}
+            alt="Nothing found"
+          />
+        )}
+        <h3 className="not-found__title">
+          {errorMessage === "Nothing Found" ? "Nothing found" : errorMessage}
+        </h3>
+        {errorMessage === "Nothing Found" && (
+          <p className="not-found__subtitle">
+            Sorry, but nothing matched your search terms.
+          </p>
+        )}
+      </div>
+    );
   }
 
   if (!articles || articles.length === 0) {

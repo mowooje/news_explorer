@@ -1,4 +1,4 @@
-.searchform__container {
+.search-form {
   width: 100%;
   padding: 0;
   margin: 0;
@@ -6,7 +6,7 @@
   justify-content: center;
 }
 
-.searchform {
+.search-form__form {
   display: flex;
   max-width: 608px;
   margin: 0 auto;
@@ -15,7 +15,7 @@
   width: 100%;
 }
 
-.searchform__field-wrapper {
+.search-form__field-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,7 +24,7 @@
   max-width: 608px;
 }
 
-.searchform__input {
+.search-form__input {
   width: 608px;
   padding: 20px;
   padding-right: 160px;
@@ -41,7 +41,7 @@
   box-sizing: border-box;
 }
 
-.searchform__btn {
+.search-form__button {
   position: absolute;
   left: 508px;
   top: 0;
@@ -64,35 +64,35 @@
   justify-content: center;
 }
 
-.searchform__btn:hover {
+.search-form__button:hover {
   background-color: #347eff;
 }
 
-.searchform__btn:active {
+.search-form__button:active {
   background-color: #2a65cc;
 }
 
 @media screen and (max-width: 768px) {
-  .searchform {
+  .search-form__form {
     padding: 0 40px 24px;
     max-width: 608px;
     margin: 0 0 0 40px;
   }
 
-  .searchform__field-wrapper {
+  .search-form__field-wrapper {
     width: 100%;
     max-width: 448px;
     margin: 0 auto;
   }
 
-  .searchform__input {
+  .search-form__input {
     width: 100%;
     padding: 18px 142px 18px 24px;
     height: 56px;
     border-radius: 100px;
   }
 
-  .searchform__btn {
+  .search-form__button {
     height: 56px;
     padding: 0 45px;
     left: 382px;
@@ -102,12 +102,12 @@
 }
 
 @media screen and (max-width: 320px) {
-  .searchform__container {
+  .search-form {
     display: flex;
     justify-content: center;
   }
 
-  .searchform {
+  .search-form__form {
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
@@ -118,13 +118,13 @@
     margin: 0;
   }
 
-  .searchform__field-wrapper {
+  .search-form__field-wrapper {
     width: 100%;
     max-width: 288px;
     margin-top: 72px;
   }
 
-  .searchform__input {
+  .search-form__input {
     width: 100%;
     padding: 18px 24px;
     height: 56px;
@@ -133,7 +133,7 @@
     line-height: 22px;
   }
 
-  .searchform__btn {
+  .search-form__button {
     position: static;
     margin-top: 16px;
     width: 100%;

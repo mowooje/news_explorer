@@ -11,10 +11,18 @@ import logoutIcon from "../../assets/logout-icon.svg";
 function Navigation({ handleSignInClick, isLoggedIn, currentUser, onLogout }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const isHomePage = location.pathname === "/";
   const isSavedNewsPage = location.pathname === "/saved-news";
+
   const logoSrc = isSavedNewsPage ? logoBlack : logoWhite;
   const menuIconSrc = isSavedNewsPage ? menuIconBlack : menuIcon;
   const navThemeClass = isSavedNewsPage ? "navigation_theme_light" : "";
+
+  const getLinkClass = (isPageActive) => {
+    return `navigation__home-link ${
+      isPageActive ? "navigation__home-link_active" : ""
+    }`;
+  };
 
   return (
     <nav className={`navigation ${navThemeClass}`}>
@@ -36,12 +44,17 @@ function Navigation({ handleSignInClick, isLoggedIn, currentUser, onLogout }) {
         </button>
 
         <div className="navigation__right">
-          <Link to="/" className="navigation__home-link">
+          <Link to="/" className={getLinkClass(isHomePage)}>
             Home
           </Link>
           {isLoggedIn ? (
             <>
-              <Link to="/saved-news" className="navigation__home-link">
+              <Link
+                to="/saved-news"
+                className={`navigation__home-link ${
+                  isSavedNewsPage ? "navigation__saved-link_active" : ""
+                }`}
+              >
                 Saved articles
               </Link>
               <button className="navigation__sign-out-btn" onClick={onLogout}>
@@ -68,7 +81,7 @@ function Navigation({ handleSignInClick, isLoggedIn, currentUser, onLogout }) {
             <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
               <img
                 className="navigation__mobile-logo"
-                src={logoSrc}
+                src={logoWhite}
                 alt="NewsExplorer logo"
               />
             </Link>

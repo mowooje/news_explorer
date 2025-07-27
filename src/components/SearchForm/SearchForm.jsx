@@ -9,20 +9,21 @@ function SearchForm({ onSearch }) {
     if (!keyword.trim()) return;
     onSearch(keyword);
   };
+
   return (
-    <div className="searchform__container">
-      <form className="searchform" onSubmit={handleSubmit}>
-        <div className="searchform__field-wrapper">
+    <div className="search-form">
+      <form className="search-form__form" onSubmit={handleSubmit}>
+        <div className="search-form__field-wrapper">
           <input
             type="text"
             name="search"
-            className="searchform__input"
+            className="search-form__input"
             placeholder="Enter topic"
             required
             value={keyword}
             onChange={(e) => setKeyword(e.target.value)}
           />
-          <button type="submit" className="searchform__btn">
+          <button type="submit" className="search-form__button">
             Search
           </button>
         </div>
@@ -30,4 +31,5 @@ function SearchForm({ onSearch }) {
     </div>
   );
 }
+
 export default SearchForm;

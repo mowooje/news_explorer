@@ -1,0 +1,30 @@
+.modal__content_type_success {
+  padding-bottom: 50px;
+  transform: translateY(-106px);
+}
+
+.modal__content_type_success .modal__title {
+  font-family: "roboto", Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  max-width: 100%;
+  margin-bottom: 14px;
+}
+
+.modal__redirect-link {
+  color: #2f71e5;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.modal__redirect-link:hover {
+  opacity: 0.8;
+}

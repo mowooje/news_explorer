@@ -12,6 +12,7 @@ import LoginModal from "../LoginModal/LoginModal";
 import Header from "../Header/Header";
 import SavedNews from "../SavedNews/SavedNews";
 import RegisterModal from "../RegisterModal/RegisterModal";
+import RegisterSuccess from "../RegisterSuccess/RegisterSuccess";
 import Footer from "../Footer/Footer";
 import { getNewsArticles } from "../../utils/NewsApi";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
@@ -80,17 +81,10 @@ function App() {
   const handleRegister = (values) => {
     setIsLoading(true);
     registerUser(values.name, values.email, values.password)
-      .then(() => authorize(values.email, values.password))
-      .then((res) => {
-        localStorage.setItem("jwt", res.token);
-        return checkToken(res.token);
+      .then(() => {
+        setActiveModal("success");
       })
-      .then((userData) => {
-        setCurrentUser(userData.data);
-        setIsLoggedIn(true);
-        closeActiveModal();
-      })
-      .catch((error) => console.error("Registration or login failed:", error))
+      .catch((error) => console.error("Registration failed:", error))
       .finally(() => setIsLoading(false));
   };
 
@@ -232,6 +226,11 @@ function App() {
         onClose={closeActiveModal}
         handleRegistration={handleRegister}
         setActiveModal={setActiveModal}
+      />
+      <RegisterSuccess
+        isOpen={activeModal === "success"}
+        onClose={closeActiveModal}
+        onSignInClick={() => setActiveModal("login")}
       />
     </div>
   );

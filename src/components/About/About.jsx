@@ -18,6 +18,10 @@ function About() {
             This block describes the project author. Here you should indicate
             your name, what you do, and which development technologies you know.
           </p>
+          <p className="about__author-paragraph2">
+            You can also talk about your experience with TripleTen, what you
+            learned there, and how you can help potential customers.
+          </p>
         </div>
       </div>
     </section>

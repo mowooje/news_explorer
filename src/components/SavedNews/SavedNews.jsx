@@ -22,21 +22,21 @@ function SavedNews({ currentUser, savedArticles, handleRemoveArticle }) {
   }
 
   return (
-    <div className="saved-news">
-      <div className="saved-news__info">
-        <h2 className="saved-news__title">Saved Articles</h2>
+    <main className="saved-news">
+      <section className="saved-news__info">
+        <p className="saved-news__title">Saved Articles</p>
 
-        <p className="saved-news__count">
+        <h1 className="saved-news__count">
           {currentUser.name}, you have {articlesToMap.length} saved articles
-        </p>
+        </h1>
 
         <p className="saved-news__keywords-label">
           By keywords:{" "}
           <span className="saved-news__keywords">{keywordsText}</span>
         </p>
-      </div>
+      </section>
 
-      <div className="saved-news__list-wrapper">
+      <section className="saved-news__list-wrapper">
         <ul className="saved-news__list">
           <NewsCard
             articles={validArticles}
@@ -47,8 +47,8 @@ function SavedNews({ currentUser, savedArticles, handleRemoveArticle }) {
             isSavedPage={true}
           />
         </ul>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
 

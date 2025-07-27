@@ -37,6 +37,7 @@
 }
 
 .navigation__home-link {
+  position: relative;
   font-family: "roboto", Arial, Helvetica, sans-serif;
   font-weight: 500;
   font-size: 18px;
@@ -49,7 +50,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px; /* Adds space between the name and the icon */
+  gap: 12px;
   height: 48px;
   padding: 0 24px;
   border-radius: 100px;
@@ -71,10 +72,14 @@
 .navigation__logout-icon {
   width: 18px;
   height: 18px;
-  filter: brightness(0) invert(1); /* Ensures icon is white */
+  filter: brightness(0) invert(1);
 }
 
 .navigation__sign-in-btn {
+  font-family: "roboto", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
   width: 176px;
   height: 48px;
   border-radius: 100px;
@@ -146,11 +151,11 @@
   border-bottom: 1px solid #d1d2d6;
 }
 
-.navigation_theme_light .navigation__home-link {
+.navigation_theme_light .navigation__right .navigation__home-link {
   color: #1a1b22;
 }
 
-.navigation_theme_light .navigation__sign-out-btn {
+.navigation_theme_light .navigation__right .navigation__sign-out-btn {
   color: #1a1b22;
   border-color: #1a1b22;
 }
@@ -158,6 +163,34 @@
 .navigation_theme_light .navigation__logout-icon {
   filter: none;
 }
+
+.navigation__home-link_active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -34px;
+  height: 3px;
+  width: 68px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+}
+
+.navigation__saved-link_active::after {
+  content: "";
+  position: absolute;
+  width: 178px;
+  height: 3px;
+  background-color: #1a1b22;
+  bottom: -34px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* .navigation_theme_light .navigation__home-link_active {
+  border-bottom-color: #1a1b22;
+} */
 
 @media screen and (max-width: 768px) {
   .navigation__content {
