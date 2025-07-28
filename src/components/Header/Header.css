@@ -128,7 +128,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 600px) {
   .header {
     height: 536px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -146,19 +146,19 @@
     padding-top: 30px;
     padding-left: 16px;
     padding-right: 16px;
-    align-items: flex-start;
-    text-align: left;
+    align-items: center;
+    text-align: center;
   }
 
   .header__title {
-    width: 285px;
+    width: 100%;
     font-size: 36px;
     line-height: 40px;
     margin: 0;
   }
 
   .header__subtitle {
-    width: 288px;
+    width: 100%;
     font-size: 18px;
     line-height: 24px;
     margin: 16px 0 42px;

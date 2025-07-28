@@ -212,7 +212,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 600px) {
   .navigation {
     height: 56px;
     padding: 0;
@@ -298,7 +298,7 @@
 
   .navigation__mobile-menu .navigation__sign-in-btn,
   .navigation__mobile-menu .navigation__sign-out-btn {
-    width: calc(100% - 32px); /* Adjust for padding */
+    width: calc(100% - 32px);
     margin: 16px auto 0;
     height: 56px;
     border-radius: 100px;
@@ -330,5 +330,14 @@
     background: transparent;
     width: 100%;
     margin-top: 50px;
+  }
+
+  .navigation_theme_light .navigation__mobile-menu .navigation__sign-out-btn {
+    color: #ffffff;
+    border-color: #ffffff;
+  }
+
+  .navigation_theme_light .navigation__mobile-menu .navigation__logout-icon {
+    filter: brightness(0) invert(1);
   }
 }

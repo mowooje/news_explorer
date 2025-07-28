@@ -212,7 +212,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 600px) {
   .modal {
     padding: 0;
   }
@@ -229,8 +229,7 @@
   .modal__close {
     width: 24px;
     height: 24px;
-    top: 16px;
-    right: 16px;
+    right: 36px;
   }
 
   .modal__input,
