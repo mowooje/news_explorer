@@ -226,7 +226,7 @@
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
-  margin: 0 0 24px;
+  margin: 0;
 }
 
 .newscard__link {
