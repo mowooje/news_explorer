@@ -37,7 +37,7 @@
   flex-direction: column;
   width: 100%;
   align-items: center;
-  padding: 80px 104px;
+  padding: 80px 0;
   background-color: #f5f6f7;
   margin: 0 auto;
   box-sizing: border-box;
@@ -51,7 +51,7 @@
   color: #1a1b22;
   margin: 0 0 48px 0;
   width: 100%;
-  max-width: 1440px;
+  max-width: 1232px;
 }
 
 .newscard-section__cards {
