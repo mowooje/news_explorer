@@ -52,6 +52,9 @@
   color: #ffffff;
   margin-top: 32px;
   margin-bottom: 88px;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-left: 16px;
 }
 
 .header_theme_light .navigation__home-link,

@@ -67,7 +67,8 @@
 .saved-news__list {
   display: flex;
   flex-wrap: wrap;
-  margin: 0;
+  margin: 0 auto;
+  max-width: 1200px;
   padding: 0;
   gap: 16px;
   list-style-type: none;
@@ -113,5 +114,10 @@
     line-height: 34px;
     letter-spacing: 0;
     color: #1a1b22;
+  }
+
+  .saved-news__list {
+    grid-template-columns: 1fr;
+    max-width: 400px;
   }
 }
