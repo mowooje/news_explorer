@@ -1,7 +1,6 @@
 .saved-news {
   display: flex;
-  padding: 0 0 62px 0;
-  max-width: 1232px;
+  padding: 40px 104px 56px;
   margin: 0 auto;
   min-height: 950px;
   flex-direction: column;
