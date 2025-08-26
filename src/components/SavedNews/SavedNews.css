@@ -74,6 +74,32 @@
   justify-content: center;
 }
 
+@media screen and (max-width: 906px) {
+  .saved-news {
+    padding: 24px;
+  }
+
+  .saved-news__info {
+    max-width: 100%;
+    padding: 24px;
+    box-sizing: border-box;
+  }
+
+  .saved-news__title {
+    width: 100%;
+  }
+
+  .saved-news__count {
+    font-size: 32px;
+    line-height: 38px;
+  }
+
+  .saved-news__list {
+    justify-content: center;
+    gap: 12px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .saved-news {
     padding: 0;
