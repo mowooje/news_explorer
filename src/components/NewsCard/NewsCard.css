@@ -56,7 +56,7 @@
 
 .newscard-section__cards {
   display: grid;
-  grid-template-columns: repeat(3, 400px);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   justify-content: center;
   width: 100%;

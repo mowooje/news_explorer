@@ -210,6 +210,10 @@
   .navigation__home-link {
     font-size: 16px;
   }
+
+  .navigation__saved-link_active::after {
+    bottom: -31px;
+  }
 }
 
 @media screen and (max-width: 600px) {
