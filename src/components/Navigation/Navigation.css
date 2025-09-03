@@ -1,0 +1,347 @@
+.navigation {
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.navigation__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  max-width: 1232px;
+  margin: 0 auto;
+  background: transparent;
+}
+
+.navigation__logo {
+  height: 30px;
+  width: auto;
+}
+
+.navigation__menu-icon {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.navigation__menu-icon img {
+  width: 24px;
+  height: auto;
+}
+
+.navigation__right {
+  display: flex;
+  align-items: center;
+  gap: 54px;
+}
+
+.navigation__home-link {
+  position: relative;
+  font-family: "roboto", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.navigation__sign-out-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 48px;
+  padding: 0 24px;
+  border-radius: 100px;
+  border: 1px solid #ffffff;
+  background: transparent;
+  color: #ffffff;
+  font-family: "roboto", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+.navigation__sign-out-btn:hover {
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.navigation__logout-icon {
+  width: 18px;
+  height: 18px;
+  filter: brightness(0) invert(1);
+}
+
+.navigation__sign-in-btn {
+  font-family: "roboto", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  width: 176px;
+  height: 48px;
+  border-radius: 100px;
+  border: 1px solid #ffffff;
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.navigation__home-link:hover,
+.navigation__sign-in-btn:hover {
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.navigation__mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #1a1b22;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px 16px;
+  gap: 24px;
+  z-index: 1000;
+}
+
+.navigation__mobile-logo {
+  width: 117px;
+  height: 24px;
+  margin-bottom: 16px;
+}
+
+.navigation__close-icon {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.navigation__close-icon img {
+  width: 24px;
+  height: auto;
+}
+
+.navigation__mobile-menu .navigation__home-link,
+.navigation__mobile-menu .navigation__sign-in-btn {
+  font-size: 18px;
+  line-height: 24px;
+  color: #ffffff;
+  width: 100%;
+  height: 56px;
+  border: none;
+  background: transparent;
+  text-align: left;
+}
+
+.navigation__mobile-menu .navigation__sign-in-btn {
+  border: 1px solid #ffffff;
+  border-radius: 100px;
+  text-align: center;
+  padding: 12px 0;
+  margin-top: 16px;
+}
+
+.navigation_theme_light {
+  border-bottom: 1px solid #d1d2d6;
+}
+
+.navigation_theme_light .navigation__right .navigation__home-link {
+  color: #1a1b22;
+}
+
+.navigation_theme_light .navigation__right .navigation__sign-out-btn {
+  color: #1a1b22;
+  border-color: #1a1b22;
+}
+
+.navigation_theme_light .navigation__logout-icon {
+  filter: none;
+}
+
+.navigation__home-link_active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -34px;
+  height: 3px;
+  width: 68px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+}
+
+.navigation__saved-link_active::after {
+  content: "";
+  position: absolute;
+  width: 178px;
+  height: 3px;
+  background-color: #1a1b22;
+  bottom: -34px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* .navigation_theme_light .navigation__home-link_active {
+  border-bottom-color: #1a1b22;
+} */
+
+@media screen and (max-width: 768px) {
+  .navigation__content {
+    padding: 16px;
+  }
+
+  .navigation__right {
+    gap: 40px;
+  }
+
+  .navigation__sign-in-btn {
+    width: 152px;
+    height: 44px;
+    font-size: 16px;
+  }
+
+  .navigation__home-link {
+    font-size: 16px;
+  }
+
+  .navigation__saved-link_active::after {
+    bottom: -31px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .navigation {
+    height: 56px;
+    padding: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .navigation_theme_light {
+    background-color: #ffffff;
+  }
+
+  .navigation__logo {
+    height: 24px;
+    width: 117px;
+  }
+
+  .navigation__right {
+    display: none;
+  }
+
+  .navigation__menu-icon {
+    display: block;
+  }
+
+  .navigation__mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 230px;
+    background: #1a1b22;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+    gap: 0;
+    z-index: 1000;
+  }
+
+  .navigation__mobile-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .navigation__mobile-links {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    width: 100%;
+  }
+
+  .navigation__close-icon {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .navigation__close-icon img {
+    width: 24px;
+    height: auto;
+  }
+
+  .navigation__mobile-logo {
+    width: 117px;
+    height: 24px;
+    margin-bottom: 16px;
+  }
+
+  .navigation__mobile-menu .navigation__home-link {
+    font-size: 18px;
+    line-height: 56px;
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  .navigation__mobile-menu .navigation__sign-in-btn,
+  .navigation__mobile-menu .navigation__sign-out-btn {
+    width: calc(100% - 32px);
+    margin: 16px auto 0;
+    height: 56px;
+    border-radius: 100px;
+    border: 1px solid #ffffff;
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .navigation__mobile-menu .navigation__home-link,
+  .navigation__mobile-menu .navigation__sign-in-btn {
+    font-size: 18px;
+    line-height: 24px;
+    color: #ffffff;
+    width: 100%;
+    height: 56px;
+    text-align: left;
+    border: none;
+    background: transparent;
+  }
+
+  .navigation__mobile-menu .navigation__sign-in-btn {
+    border: 1px solid #ffffff;
+    border-radius: 100px;
+    text-align: center;
+    padding: 12px 0;
+    font-size: 18px;
+    line-height: 24px;
+    color: #ffffff;
+    background: transparent;
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  .navigation_theme_light .navigation__mobile-menu .navigation__sign-out-btn {
+    color: #ffffff;
+    border-color: #ffffff;
+  }
+
+  .navigation_theme_light .navigation__mobile-menu .navigation__logout-icon {
+    filter: brightness(0) invert(1);
+  }
+}

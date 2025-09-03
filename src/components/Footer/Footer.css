@@ -1,0 +1,119 @@
+.footer {
+  width: 100%;
+  padding: 32px 104px 26px 104px;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+.footer__text {
+  font-family: "roboto_400", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #b6bcbf;
+}
+
+.footer__links-container {
+  display: flex;
+  align-items: center;
+}
+
+.footer__links {
+  font-family: "roboto_400", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  display: flex;
+  gap: 40px;
+}
+
+.footer__link-home,
+.footer__link-tripleten {
+  gap: 40px;
+  align-items: center;
+  color: #1a1b22;
+  text-decoration: none;
+}
+
+.footer__socials {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  margin-left: 40px;
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    width: 100%;
+    height: 64px;
+    padding: 24px 40px 18px 40px;
+  }
+
+  .footer__text {
+    white-space: nowrap;
+  }
+
+  .footer__links-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 40px;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+
+  .footer__links {
+    display: flex;
+    gap: 24px;
+  }
+
+  .footer__socials {
+    margin-left: 0;
+    gap: 16px;
+  }
+
+  .footer__link-home,
+  .footer__link-tripleten {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px 16px;
+    height: auto;
+    gap: 32px;
+    margin-top: 40px;
+  }
+
+  .footer__links-container {
+    order: -1;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 0;
+  }
+
+  .footer__links {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer__socials {
+    align-self: flex-start;
+  }
+
+  .footer__text {
+    width: 100%;
+    text-align: left;
+    font-size: 14px;
+    line-height: 20px;
+    color: #b6bcbf;
+  }
+}
