@@ -52,7 +52,6 @@
   color: #ffffff;
   margin-top: 32px;
   margin-bottom: 88px;
-  white-space: nowrap;
   overflow: hidden;
   margin-left: 16px;
 }
@@ -150,7 +149,6 @@
     padding-left: 16px;
     padding-right: 16px;
     align-items: center;
-    text-align: center;
   }
 
   .header__title {
